@@ -1,0 +1,17 @@
+{
+  "name": "AMED - Association Marocaine de l'Environnement et la Digitalisation",
+  "short_name": "AMED",
+  "description": "Promouvoir la protection environnementale et la transformation digitale au Maroc",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/logo/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}
