@@ -1,0 +1,45 @@
+
+> amed-frontend@1.0.0 build
+> next build
+
+   ▲ Next.js 16.0.3 (Turbopack)
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.4min
+   Skipping validation of types
+   Collecting page data using 3 workers ...
+   Generating static pages using 3 workers (0/21) ...
+   Generating static pages using 3 workers (5/21) 
+   Generating static pages using 3 workers (10/21) 
+   Generating static pages using 3 workers (15/21) 
+ ✓ Generating static pages using 3 workers (21/21) in 25.1s
+   Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/auth/register
+├ ƒ /api/blog
+├ ƒ /api/chat
+├ ƒ /api/contact
+├ ƒ /api/events
+├ ƒ /api/projects
+├ ƒ /api/users
+├ ○ /blog
+├ ○ /contact
+├ ƒ /dashboard
+├ ƒ /dashboard/events
+├ ƒ /dashboard/projects
+├ ƒ /dashboard/users
+├ ○ /events
+├ ○ /login
+├ ○ /projects
+└ ○ /register
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

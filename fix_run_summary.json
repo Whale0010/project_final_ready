@@ -1,0 +1,42 @@
+{
+  "removedBakFiles": [
+    "src/app/api/auth/register/route.ts.bak",
+    "src/app/api/chat/deepseek/route.ts.bak",
+    "src/app/api/contact/route.ts.bak",
+    "src/app/api/health/route.ts.bak",
+    "src/app/api/items/route.ts.bak",
+    "src/app/layout.tsx.bak",
+    "src/app/page.tsx.bak"
+  ],
+  "scriptResults": {
+    "scripts/move_backup.js": {
+      "skipped": false,
+      "ok": false,
+      "code": 2
+    },
+    "scripts/auto_fix_routes_and_imports.js": {
+      "skipped": false,
+      "ok": true,
+      "code": 0
+    },
+    "scripts/fix_api_imports.js": {
+      "skipped": false,
+      "ok": true,
+      "code": 0
+    }
+  },
+  "report": {
+    "apiRoutes": [
+      "src/app/api/auth/register/route",
+      "src/app/api/auth/route",
+      "src/app/api/chat/deepseek/route",
+      "src/app/api/chat/route",
+      "src/app/api/contact/route",
+      "src/app/api/health/route",
+      "src/app/api/items/route",
+      "src/app/api/route"
+    ],
+    "backups": [],
+    "brokenImports": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "apiRoutes": [
+    "src/app/api/auth/register/route",
+    "src/app/api/auth/route",
+    "src/app/api/chat/deepseek/route",
+    "src/app/api/chat/route",
+    "src/app/api/contact/route",
+    "src/app/api/health/route",
+    "src/app/api/items/route",
+    "src/app/api/route"
+  ],
+  "backups": [],
+  "brokenImports": []
+}
