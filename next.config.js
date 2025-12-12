@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -16,6 +15,9 @@ const nextConfig = {
       },
     ],
     unoptimized: true,
+  },
+  turbopack: {
+    root: require('path').resolve(__dirname),
   },
   async headers() {
     return [
