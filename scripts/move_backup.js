@@ -37,7 +37,7 @@ function toPosix(p) { return p.split(path.sep).join('/') }
     try {
       if (!fs.existsSync(oldAbs)) {
         console.warn('SKIP (not found):', m.from)
-        failed.push({ file: m.from, reason: 'not found' })
+        // file missing in backup — treat as non-fatal skip
         continue
       }
 
@@ -127,6 +127,6 @@ export function GET() {
     for (const f of failed) console.log('  -', f.file, f.reason)
     process.exitCode = 2
   } else {
-    console.log('\nAll requested files moved successfully.')
+    console.log('\nAll requested files moved successfully (skips allowed).')
   }
 })()
