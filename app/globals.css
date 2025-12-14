@@ -90,3 +90,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Accessibility fixes: ensure white text on light backgrounds is readable */
+.bg-white .text-white,
+.bg-gray-50 .text-white,
+.bg-white .text-gray-100,
+.bg-gray-50 .text-gray-100 {
+  color: rgb(var(--foreground)) !important;
+}
+
+/* Keep white text on dark backgrounds as expected */
+.dark .text-white {
+  color: #fff !important;
+}

@@ -1,8 +1,10 @@
-import Hero from "@/components/sections/Hero"
-import Stats from "@/components/sections/Stats"
-import Projects from "@/components/sections/Projects"
-import Events from "@/components/sections/Events"
-import Image from "next/image"
+import React from 'react'
+import '../styles/globals.css'
+import Hero from '@/components/sections/Hero'
+import Stats from '@/components/sections/Stats'
+import Projects from '@/components/sections/Projects'
+import Events from '@/components/sections/Events'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -17,7 +19,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">
-                <span className="bg-gradient-to-r from-cyan-500 to-green-500 bg-clip-text text-transparent">AMED</span>{" "}
+                <span className="bg-gradient-to-r from-cyan-500 to-green-500 bg-clip-text text-transparent">AMED</span>{' '}
                 - Notre Mission
               </h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-300">

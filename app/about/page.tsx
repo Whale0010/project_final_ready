@@ -1,5 +1,13 @@
 export default function About() {
   return (
+    <main className="min-h-screen p-8">
+      <h1 className="text-3xl font-bold">À propos d'AMED</h1>
+      <p className="mt-4">AMED est une association dédiée à l'environnement et à la digitalisation au Maroc.</p>
+    </main>
+  )
+}
+export default function About() {
+  return (
     <div className="container mx-auto px-4 py-20">
       <h1 className="text-4xl md:text-5xl font-bold font-heading mb-8 bg-gradient-to-r from-cyan-500 to-green-500 bg-clip-text text-transparent">
         À Propos d'AMED

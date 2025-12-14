@@ -1,3 +1,11 @@
+export default function Contact() {
+  return (
+    <main className="min-h-screen p-8">
+      <h1 className="text-3xl font-bold">Contact</h1>
+      <p className="mt-4">Contactez-nous via email ou formulaire.</p>
+    </main>
+  )
+}
 "use client"
 
 import type React from "react"
