@@ -1,9 +1,0 @@
-import { NextResponse } from 'next/server';
-
-export async function GET() {
-  return NextResponse.json({ status: 'ok' });
-}
-
-
-/* auto-added handlers */
-export async function POST() { return new Response('ok', { status: 200 }); }

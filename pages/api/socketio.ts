@@ -1,16 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { initSocket } from '@/lib/socket'
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  try {
-    await initSocket(res)
-    res.status(200).end()
-  } catch (err) {
-    console.error('socket init error', err)
-    res.status(500).json({ error: 'Socket init failed' })
-  }
-}
-import { NextApiRequest, NextApiResponse } from 'next'
 import { Server as IOServer } from 'socket.io'
 import dbConnect from '@/lib/mongodb'
 import Message from '@/models/Message'
@@ -18,9 +6,9 @@ import Message from '@/models/Message'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (!res.socket) return res.status(500).end()
 
-  // @ts-ignore attach once
+  // attach socket.io once per server
+  // @ts-ignore
   if (!res.socket.server.io) {
-    // create new socket.io server
     const io = new IOServer(res.socket.server as any, {
       path: '/api/socketio',
       cors: { origin: '*' },
@@ -51,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     })
 
-    // @ts-ignore attach
+    // @ts-ignore
     res.socket.server.io = io
   }
 
