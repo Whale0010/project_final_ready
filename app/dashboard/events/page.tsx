@@ -5,21 +5,72 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plus, Edit2, Trash2, Users } from "lucide-react"
 
+type EventType = {
+  _id: string
+  title: string
+  description?: string
+  startDate?: string
+  registrations?: Array<unknown>
+  [key: string]: unknown
+}
+
 export default function EventsManagement() {
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState<EventType[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchEvents()
   }, [])
 
-  const fetchEvents = async () => {
+  const fetchEvents = async (): Promise<EventType[]> => {
     try {
       const response = await fetch("/api/events")
-      const data = await response.json()
-      setEvents(data)
+
+      if (!response.ok) {
+        console.error("Failed to fetch events: HTTP", response.status)
+        setEvents([])
+        return []
+      }
+
+      const data = await response.json().catch(() => null)
+
+      // Defensive runtime validation
+      // 1) If data is already an array -> use it
+      if (Array.isArray(data)) {
+        setEvents(data as EventType[])
+        return data
+      }
+
+      // 2) If data is an object, try common array fields
+      if (data && typeof data === "object") {
+        const obj = data as Record<string, unknown>
+        const eventsField = obj["events"]
+        if (Array.isArray(eventsField)) {
+          setEvents(eventsField as EventType[])
+          return eventsField as EventType[]
+        }
+        const dataField = obj["data"]
+        if (Array.isArray(dataField)) {
+          setEvents(dataField as EventType[])
+          return dataField as EventType[]
+        }
+
+        // If the object itself looks like a single event, wrap into array
+        const maybeEvent = obj as unknown as EventType
+        if (maybeEvent && (maybeEvent._id || maybeEvent.title)) {
+          setEvents([maybeEvent])
+          return [maybeEvent]
+        }
+      }
+
+      // 3) Fallback: invalid shape -> empty array
+      console.warn("fetchEvents: unexpected response shape, returning empty array", data)
+      setEvents([])
+      return []
     } catch (error) {
       console.error("Failed to fetch events:", error)
+      setEvents([])
+      return []
     } finally {
       setLoading(false)
     }
